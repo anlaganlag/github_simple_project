@@ -1,6 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Hello Gal</h1>
-    <p>{{ api }}</p>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">It pains ,But enjoy it!</h1>
+    <p class="lead">A litter project about github user !</p>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        {% for x in api %}
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem; margin: 1rem;">
+            <img class="card-img-top" src="{{ x.avatar_url }}" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"{{ x.login }}"></h5>
+                <p class="card-text"> {{ x.login }}的github</p>
+                <a href="{{x.html_url }}" class="btn btn-primary">訪問</a>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
 {% endblock %}
